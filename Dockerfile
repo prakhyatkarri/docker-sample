@@ -5,5 +5,5 @@ WORKDIR /build/
 RUN mvn package
 FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY --from=MAVEN_BUILD /build/target/docker-sample-0.1.0.jar /app/
-ENTRYPOINT ["java", "-jar", "docker-sample-0.1.0.jar"]
+COPY --from=MAVEN_BUILD /build/target/docker-sample.jar /app/
+ENTRYPOINT ["java", "-jar", "docker-sample.jar"]
